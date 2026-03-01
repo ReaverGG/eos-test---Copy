@@ -1,0 +1,74 @@
+[gd_scene format=3 uid="uid://d3yob5eeifiai"]
+
+[ext_resource type="Script" uid="uid://bue7hao811pwi" path="res://scripts/eos_menu.gd" id="1_lg8cp"]
+[ext_resource type="PackedScene" uid="uid://dgeqi6ckogmfq" path="res://scenes/GameScene.tscn" id="2_8k5sy"]
+[ext_resource type="Texture2D" uid="uid://cwg5bnhbvdgiy" path="res://icon.svg" id="3_vsnm1"]
+
+[node name="EOSLogin" type="Control" unique_id=1455828110]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_lg8cp")
+game_scene = ExtResource("2_8k5sy")
+
+[node name="Container" type="CenterContainer" parent="." unique_id=1951190204]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Container" type="VBoxContainer" parent="Container" unique_id=2087621174]
+layout_mode = 2
+theme_override_constants/separation = 14
+
+[node name="MessageDisplay" type="Label" parent="Container/Container" unique_id=778674335]
+custom_minimum_size = Vector2(250, 1)
+layout_mode = 2
+text = "This is the info about the game :)"
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="Lobby" type="VBoxContainer" parent="Container/Container" unique_id=560304412]
+layout_mode = 2
+theme_override_constants/separation = 14
+
+[node name="Create" type="Button" parent="Container/Container/Lobby" unique_id=980523723]
+custom_minimum_size = Vector2(250, 70)
+layout_mode = 2
+text = "Create"
+
+[node name="Join" type="Button" parent="Container/Container/Lobby" unique_id=1260874716]
+custom_minimum_size = Vector2(250, 70)
+layout_mode = 2
+text = "Join"
+
+[node name="Play" type="Button" parent="Container/Container" unique_id=210094205]
+visible = false
+custom_minimum_size = Vector2(250, 70)
+layout_mode = 2
+text = "Play"
+
+[node name="NameInput" type="LineEdit" parent="Container/Container" unique_id=1497963050]
+layout_mode = 2
+placeholder_text = "Enter your username here"
+alignment = 1
+
+[node name="PlayerList" type="Label" parent="Container/Container" unique_id=1324915465]
+custom_minimum_size = Vector2(250, 1)
+layout_mode = 2
+text = "---"
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="Icon" type="Sprite2D" parent="." unique_id=145275176]
+position = Vector2(222, 437)
+texture = ExtResource("3_vsnm1")
+
+[connection signal="pressed" from="Container/Container/Lobby/Create" to="." method="_on_create_pressed"]
+[connection signal="pressed" from="Container/Container/Lobby/Join" to="." method="_on_join_pressed"]
+[connection signal="pressed" from="Container/Container/Play" to="." method="_on_play_pressed"]

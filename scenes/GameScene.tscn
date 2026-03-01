@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://dgeqi6ckogmfq"]
+
+[ext_resource type="Script" uid="uid://fv0w4ot8xa1a" path="res://scripts/game_scene.gd" id="1_xy3my"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vh257"]
+size = Vector2(2502, 119)
+
+[node name="GameScene" type="Node2D" unique_id=939228582]
+script = ExtResource("1_xy3my")
+
+[node name="PlayerContainer" type="Node2D" parent="." unique_id=303904154]
+
+[node name="PlayerSpawner" type="MultiplayerSpawner" parent="." unique_id=2071108944]
+_spawnable_scenes = PackedStringArray("uid://dko6vnykj1a8q")
+spawn_path = NodePath("../PlayerContainer")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1498215603]
+position = Vector2(-629, 229)
+
+[node name="Collider" type="CollisionShape2D" parent="StaticBody2D" unique_id=1934795657]
+position = Vector2(627, 58.5)
+shape = SubResource("RectangleShape2D_vh257")
+
+[node name="ColorRect" type="ColorRect" parent="StaticBody2D" unique_id=502517846]
+offset_left = -627.0
+offset_right = 1881.0
+offset_bottom = 689.0
+color = Color(0.2488778, 0.013655313, 0.056412466, 1)

@@ -1,0 +1,32 @@
+[gd_scene format=3 uid="uid://dko6vnykj1a8q"]
+
+[ext_resource type="Texture2D" uid="uid://cwg5bnhbvdgiy" path="res://icon.svg" id="1_p0vlq"]
+[ext_resource type="Script" uid="uid://db8lac4uourbh" path="res://scripts/player.gd" id="1_v6fml"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_v6fml"]
+size = Vector2(130, 132)
+
+[sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_v6fml"]
+properties/0/path = NodePath(".:position")
+properties/0/spawn = true
+properties/0/replication_mode = 1
+
+[node name="Player" type="CharacterBody2D" unique_id=1789960659]
+scale = Vector2(0.5, 0.5)
+script = ExtResource("1_v6fml")
+
+[node name="Collider" type="CollisionShape2D" parent="." unique_id=1949265727]
+shape = SubResource("RectangleShape2D_v6fml")
+
+[node name="Icon" type="Sprite2D" parent="." unique_id=347999394]
+texture = ExtResource("1_p0vlq")
+
+[node name="Synchronizer" type="MultiplayerSynchronizer" parent="." unique_id=820357451]
+physics_interpolation_mode = 1
+replication_config = SubResource("SceneReplicationConfig_v6fml")
+visibility_update_mode = 1
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=992214778]
+enabled = false
+process_callback = 0
+position_smoothing_enabled = true

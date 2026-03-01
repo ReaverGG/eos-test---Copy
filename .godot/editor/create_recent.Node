@@ -1,0 +1,14 @@
+Camera2D
+StaticBody2D
+CollisionShape2D
+ColorRect
+LineEdit
+Label
+MultiplayerSynchronizer
+OptionButton
+MenuButton
+CharacterBody2D
+MultiplayerSpawner
+Node2D
+VBoxContainer
+Control
